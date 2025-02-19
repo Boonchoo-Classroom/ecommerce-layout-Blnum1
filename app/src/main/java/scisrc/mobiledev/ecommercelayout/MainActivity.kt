@@ -8,6 +8,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import scisrc.mobiledev.ecommercelayout.databinding.ActivityMainBinding
 import scisrc.mobiledev.ecommercelayout.ui.HomeFragment
+import scisrc.mobiledev.ecommercelayout.ui.ProductListFragment
+import scisrc.mobiledev.ecommercelayout.ui.CartFragment
+import scisrc.mobiledev.ecommercelayout.ui.ProfileFragment
+import scisrc.mobiledev.ecommercelayout.ui.FavoritesFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -44,6 +48,10 @@ class MainActivity : AppCompatActivity() {
                         .replace(R.id.fragment_container, HomeFragment())
                         .commit()
                 }
+                R.id.nav_products -> loadFragment(ProductListFragment())
+                R.id.nav_cart -> loadFragment(CartFragment())
+                R.id.nav_profile -> loadFragment(ProfileFragment())
+                R.id.nav_favorites -> loadFragment(FavoritesFragment())
 
             }
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -58,6 +66,13 @@ class MainActivity : AppCompatActivity() {
             binding.navView.setCheckedItem(R.id.nav_home)
         }
     }
+
+    private fun loadFragment(fragment: androidx.fragment.app.Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
