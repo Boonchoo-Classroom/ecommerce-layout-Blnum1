@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "ปากกาสีน้ำเงิน",
+      "price": 10,
+      "image": "https://bangpleestationery.com/wp-content/uploads/2023/10/%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2%E0%B8%AB%E0%B8%A1%E0%B8%B6%E0%B8%81%E0%B9%80%E0%B8%88%E0%B8%A5-BLN105.jpg",
+      "category": "ปากกา"
+    },
+    {
+      "id": 2,
+      "name": "ดินสอไม้ HB",
+      "price": 5,
+      "image": "https://api.chulabook.com/images/pid-2858.jpg",
+      "category": "ดินสอ"
+    },
+    {
+      "id": 3,
+      "name": "สมุดโน้ต A5",
+      "price": 50,
+      "image": "https://www.monet.asia/wp-content/uploads/product/trusco/img/5005072.jpg",
+      "category": "สมุด"
+    }
+  ]
+}
