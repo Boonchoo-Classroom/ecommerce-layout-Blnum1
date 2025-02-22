@@ -3,7 +3,7 @@ package scisrc.mobiledev.ecommercelayout.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import scisrc.mobiledev.ecommercelayout.databinding.ItemProductBinding
+import scisrc.mobiledev.ecommercelayout.databinding.ItemCartBinding
 import scisrc.mobiledev.ecommercelayout.model.Product
 
 class CartAdapter(
@@ -11,10 +11,10 @@ class CartAdapter(
     private val onItemRemoved: (Product) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
-    class CartViewHolder(val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root)
+    class CartViewHolder(val binding: ItemCartBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val binding = ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemCartBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CartViewHolder(binding)
     }
 

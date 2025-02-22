@@ -1,5 +1,6 @@
 package scisrc.mobiledev.ecommercelayout.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,9 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import scisrc.mobiledev.ecommercelayout.databinding.ItemProductBinding
 import scisrc.mobiledev.ecommercelayout.model.Product
 import scisrc.mobiledev.ecommercelayout.ui.ProductDetailActivity
+import scisrc.mobiledev.ecommercelayout.utils.FavoriteManager
+import scisrc.mobiledev.ecommercelayout.R
 
-class ProductAdapter(private var productList: List<Product>) :
-    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(
+    private val context: Context,
+    private var productList: List<Product>
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -25,6 +30,20 @@ class ProductAdapter(private var productList: List<Product>) :
         holder.binding.productPrice.text = "${product.price} บาท"
         holder.binding.productImage.setImageResource(product.image)
 
+        val isFavorite = FavoriteManager.getFavorites(context).contains(product)
+        holder.binding.favoriteButton.setImageResource(
+            if (isFavorite) R.drawable.fav_icon else R.drawable.favorite_white
+        )
+
+        holder.binding.favoriteButton.setOnClickListener {
+            if (isFavorite) {
+                FavoriteManager.removeFromFavorites(context, product)
+            } else {
+                FavoriteManager.addToFavorites(context, product)
+            }
+            notifyItemChanged(position)
+        }
+
         holder.itemView.setOnClickListener {
             val intent = Intent(it.context, ProductDetailActivity::class.java)
             intent.putExtra("product", product)
@@ -38,6 +57,4 @@ class ProductAdapter(private var productList: List<Product>) :
         productList = newList
         notifyDataSetChanged()
     }
-
-
 }

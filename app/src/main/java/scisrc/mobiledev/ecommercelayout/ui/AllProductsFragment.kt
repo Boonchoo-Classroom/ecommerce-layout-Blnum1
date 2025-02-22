@@ -9,18 +9,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import scisrc.mobiledev.ecommercelayout.R
 import scisrc.mobiledev.ecommercelayout.adapter.ProductAdapter
 import scisrc.mobiledev.ecommercelayout.adapter.CategoryAdapter
-import scisrc.mobiledev.ecommercelayout.databinding.FragmentHomeBinding
+import scisrc.mobiledev.ecommercelayout.databinding.FragmentAllProductsBinding
 import scisrc.mobiledev.ecommercelayout.model.Product
 
-class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
+class AllProductsFragment : Fragment() {
+    private var _binding: FragmentAllProductsBinding? = null
     private val binding get() = _binding!!
 
     private val allProducts = listOf(
         Product("ปากกาสีน้ำเงิน", 10.0, "ปากกาสีน้ำเงิน", R.drawable.pen_1, "Pen"),
         Product("ดินสอ", 5.0, "ดินสอ 2B", R.drawable.pencil_1, "Pencil"),
         Product("สมุดปกแข็ง", 25.0, "สมุดปกแข็ง", R.drawable.book_2, "Book"),
-
+        Product("ปากกาสีแดง", 10.0, "ปากกาสีแดง", R.drawable.pen_2, "Pen"),
+        Product("ปากกาสีดำ", 10.0, "ปากกาสีดำ", R.drawable.pen3, "Pen"),
+        Product("ดินสอกด", 20.0, "ดินสอกด", R.drawable.pencil_2, "Pencil"),
+        Product("สมุดปกอ่อน", 20.0, "สมุดปกอ่อน", R.drawable.book_1, "Book")
     )
 
     private var filteredProducts = allProducts.toMutableList()
@@ -30,7 +33,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentAllProductsBinding.inflate(inflater, container, false)
 
 
         productAdapter = ProductAdapter(requireContext(), filteredProducts)
@@ -42,13 +45,13 @@ class HomeFragment : Fragment() {
         val categoryAdapter = CategoryAdapter(categories) { selectedCategory ->
             filterProductsByCategory(selectedCategory)
         }
-
         binding.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.categoryRecyclerView.adapter = categoryAdapter
 
         return binding.root
     }
+
 
     private fun filterProductsByCategory(category: String) {
         filteredProducts = if (category == "All") {

@@ -8,6 +8,11 @@
         android:label="Home" />
 
     <fragment
+        android:id="@+id/allProductsFragment"
+        android:name="scisrc.mobiledev.ecommercelayout.ui.AllProductsFragment"
+        android:label="สินค้าทั้งหมด" />
+
+    <fragment
         android:id="@+id/favoritesFragment"
         android:name="scisrc.mobiledev.ecommercelayout.ui.FavoritesFragment"
         android:label="Favorites" />

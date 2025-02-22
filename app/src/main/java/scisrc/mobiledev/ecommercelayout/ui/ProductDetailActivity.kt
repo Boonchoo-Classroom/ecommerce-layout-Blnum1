@@ -22,6 +22,11 @@ class ProductDetailActivity : AppCompatActivity() {
         binding.productPrice.text = "${product.price} บาท"
         Glide.with(this).load(product.image).into(binding.productImage)
 
+        binding.backButton.setOnClickListener {
+            finish()  // ปิด Activity นี้และกลับไปหน้าก่อนหน้า
+        }
+
+
         binding.addToCartButton.setOnClickListener {
             CartManager.addToCart(this, product)
         }

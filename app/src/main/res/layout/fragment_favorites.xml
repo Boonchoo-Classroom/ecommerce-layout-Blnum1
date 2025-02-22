@@ -3,11 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="8dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="รายการโปรด"
-        android:textSize="20sp"/>
+        android:layout_marginTop="20dp"
+        android:paddingBottom="8dp"
+        android:text="สินค้าที่คุณชอบ"
+        android:textAlignment="center"
+        android:textSize="24sp"
+
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

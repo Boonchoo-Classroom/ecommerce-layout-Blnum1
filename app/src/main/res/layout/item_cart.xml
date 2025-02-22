@@ -11,10 +11,10 @@
     <ImageView
         android:id="@+id/productImage"
         android:layout_width="80dp"
-        android:layout_height="108dp"
-        android:padding="4dp"
+        android:layout_height="80dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/banner1" />
+        android:src="@drawable/banner1"
+        android:padding="4dp"/>
 
     <!-- Layout สำหรับข้อมูลสินค้า -->
     <LinearLayout
@@ -38,15 +38,16 @@
             android:layout_height="wrap_content"
             android:text="ราคา"
             android:paddingBottom="4dp"/>
-
-        <ImageButton
-            android:id="@+id/favoriteButton"
-            android:layout_width="40dp"
-            android:layout_height="41dp"
-            android:layout_margin="8dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/btn_3" />
     </LinearLayout>
 
-
+    <!-- ปุ่มลบ -->
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ลบออกจากตะกร้า"
+        android:backgroundTint="@color/black"
+        android:textColor="@android:color/white"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical"/>
 </LinearLayout>
